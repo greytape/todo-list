@@ -1,4 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+  var csrftoken = getCookie('csrftoken');
+  
   let templateManager = {
     getTemplateSources: function() {
       this.main_template_source = document.querySelector('#main_template').innerHTML;
@@ -44,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
       let request = new XMLHttpRequest();
       request.open('POST', 'http://127.0.0.1:8000/api/');
       request.setRequestHeader('Content-Type', 'application/json');
+      request.setRequestHeader("X-CSRFToken", csrftoken)
       request.setRequestHeader('Accept', '*/*');
       request.addEventListener('load', this.retrieveAllTodos);
       request.send(JSON.stringify(todo));
@@ -52,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
     deleteTodo: function(id) {
       let request = new XMLHttpRequest();
       request.open('DELETE', `http://127.0.0.1:8000/api/${id}/`);
+      request.setRequestHeader("X-CSRFToken", csrftoken)
       request.addEventListener('load', this.retrieveAllTodos);
       request.send();
     },
@@ -171,6 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
       let request = new XMLHttpRequest();
       request.open('PUT', `http://127.0.0.1:8000/api/${todo.id}/`);
       request.setRequestHeader('Content-Type', 'application/json');
+      request.setRequestHeader("X-CSRFToken", csrftoken)
       request.addEventListener('load', function() {
         listManager.retrieveAllTodos();
       });
