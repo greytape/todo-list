@@ -42,15 +42,16 @@ document.addEventListener('DOMContentLoaded', function() {
   listManager = {
     addTodoOnServer: function(todo) {
       let request = new XMLHttpRequest();
-      request.open('POST', 'http://localhost:3000/api/todos');
+      request.open('POST', 'http://127.0.0.1:8000/api/');
       request.setRequestHeader('Content-Type', 'application/json');
+      request.setRequestHeader('Accept', '*/*');
       request.addEventListener('load', this.retrieveAllTodos);
       request.send(JSON.stringify(todo));
     },
 
     deleteTodo: function(id) {
       let request = new XMLHttpRequest();
-      request.open('DELETE', `http://localhost:3000/api/todos/${id}`);
+      request.open('DELETE', `http://127.0.0.1:8000/api/${id}/`);
       request.addEventListener('load', this.retrieveAllTodos);
       request.send();
     },
@@ -63,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     retrieveAllTodos: function() {
       let request = new XMLHttpRequest();
-      request.open('GET', 'http://localhost:3000/api/todos');
+      request.open('GET', 'http://127.0.0.1:8000/api/');
       request.responseType = 'json';
       request.addEventListener('load', function() {
         listManager.todos = request.response;
@@ -168,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     updateTodoOnServer: function(todo) {
       let request = new XMLHttpRequest();
-      request.open('PUT', `http://localhost:3000/api/todos/${todo.id}`);
+      request.open('PUT', `http://127.0.0.1:8000/api/${todo.id}/`);
       request.setRequestHeader('Content-Type', 'application/json');
       request.addEventListener('load', function() {
         listManager.retrieveAllTodos();

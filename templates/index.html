@@ -38,7 +38,7 @@
       </header>
       <main>
         <label for="new_item">
-          <img src="images/plus.png" alt="Add Todo Item" />
+          <img src="/static/images/plus.png" alt="Add Todo Item" />
           <h2>Add new to do</h2>
         </label>
         <table cellspacing="0">
@@ -149,7 +149,7 @@
       {{/if}}
       <span class="check"></span>
       <label>{{title}} - {{due_date}}</label></td>
-      <td class="delete"><img src="images/trash.png" alt="Delete"/></td>
+      <td class="delete"><img src="/static/images/trash.png" alt="Delete"/></td>
     </tr>
   </script>
   <script type="text/x-handlebars" id="list_template" data-type="partial">
@@ -191,7 +191,7 @@
   </script>
   <script type="text/x-handlebars" id="title_template" data-type="partial">
    <label for="sidebar_toggle">
-     <img src="images/hamburger.png" alt="Toggle Sidebar" />
+     <img src="static/images/hamburger.png" alt="Toggle Sidebar" />
    </label>
    <dl>
      <dt><time>{{current_section.title}}</time></dt><!--
