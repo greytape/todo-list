@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
   listManager = {
     addTodoOnServer: function(todo) {
       let request = new XMLHttpRequest();
-      request.open('POST', 'http://127.0.0.1:8000/api/');
+      request.open('POST', 'api/');
       request.setRequestHeader('Content-Type', 'application/json');
       request.setRequestHeader("X-CSRFToken", csrftoken)
       request.setRequestHeader('Accept', '*/*');
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     deleteTodo: function(id) {
       let request = new XMLHttpRequest();
-      request.open('DELETE', `http://127.0.0.1:8000/api/${id}/`);
+      request.open('DELETE', `api/${id}/`);
       request.setRequestHeader("X-CSRFToken", csrftoken)
       request.addEventListener('load', this.retrieveAllTodos);
       request.send();
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     retrieveAllTodos: function() {
       let request = new XMLHttpRequest();
-      request.open('GET', 'http://127.0.0.1:8000/api/');
+      request.open('GET', 'api/');
       request.responseType = 'json';
       request.addEventListener('load', function() {
         listManager.todos = request.response;
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     updateTodoOnServer: function(todo) {
       let request = new XMLHttpRequest();
-      request.open('PUT', `http://127.0.0.1:8000/api/${todo.id}/`);
+      request.open('PUT', `api/${todo.id}/`);
       request.setRequestHeader('Content-Type', 'application/json');
       request.setRequestHeader("X-CSRFToken", csrftoken)
       request.addEventListener('load', function() {
