@@ -21,7 +21,7 @@ body {
 }
 
 #sidebar header{
-  background: transparent url('../images/label.png') 0 7px no-repeat;
+  background: transparent url('https://firebasestorage.googleapis.com/v0/b/ollychadwick-cc513.appspot.com/o/label.png?alt=media&token=9f7c623f-ca4a-49a4-9d31-29c38fcabe1c') 0 7px no-repeat;
   margin-left: 100px;
   box-sizing: border-box;
   padding-bottom: 10px;
@@ -33,7 +33,7 @@ body {
     
 }
 #sidebar section.completed header{
-    background-image: url('../images/completed.png');
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/ollychadwick-cc513.appspot.com/o/completed.png?alt=media&token=de6cc3ec-b35a-4b3e-bfaf-e0c25785f24f');
     background-position-x: 100px;
 }
 #sidebar header dl{
@@ -216,7 +216,7 @@ table .list_item {
 }
 
 table .list_item .check {
-  background: transparent url("../images/checkbox.png") no-repeat;
+  background: transparent url("https://firebasestorage.googleapis.com/v0/b/ollychadwick-cc513.appspot.com/o/checkbox.png?alt=media&token=7908b5aa-4a0b-4c32-a18d-ce00df5b4564") no-repeat;
   position: absolute;
   top: 18px;
   left: 15px;
@@ -225,7 +225,7 @@ table .list_item .check {
 }
 
 table td input[type="checkbox"]:checked + .check {
-    background-image: url("../images/checked.png");
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/ollychadwick-cc513.appspot.com/o/checked.png?alt=media&token=ebdad991-baa8-400e-bc4a-c1a5396f8793");
 }
 .delete img:hover{
   cursor: pointer;
