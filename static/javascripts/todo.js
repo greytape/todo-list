@@ -236,6 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
       todo.day = formElements.due_day.value;
       todo.month = formElements.due_month.value;
       todo.year = formElements.due_year.value;
+      todo.completed = false;
       if (formElements.description.value) {todo.description = formElements.description.value;}
       return todo;
     },
